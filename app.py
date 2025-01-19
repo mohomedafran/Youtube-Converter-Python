@@ -17,7 +17,8 @@ def convert():
     if request.method == 'POST':
         video_url = request.form['video_link']
         try:
-            video_info = YoutubeDL().extract_info(url=video_url, download=False)
+            # Extract video info without downloading
+            video_info = YoutubeDL({'cookiefile': 'cookies.txt'}).extract_info(url=video_url, download=False)
             title = video_info['title']
         except Exception as e:
             return f"Error occurred: {e}"
@@ -28,12 +29,20 @@ def convert():
 
         # Define download options for yt_dlp
         options = {
-            'cookiefile': 'cookies.txt',
+            'cookiefile': 'cookies.txt',  # Path to your cookies file
             'format': 'bestaudio/best',
             'keepvideo': False,
-            'outtmpl': filename
+            'outtmpl': filename,
+            'quiet': True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }]
         }
+
         try:
+            # Download the audio
             with YoutubeDL(options) as ytaudio:
                 ytaudio.download([video_info['webpage_url']])
         except Exception as e:

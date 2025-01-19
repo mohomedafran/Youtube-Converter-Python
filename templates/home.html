@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>YouTube Converter</h1>
+    </header>
+    <main>
+      <form action="/result" method="POST">
+        <label for="video_link">Enter the Video URL</label>
+        <input type="url" id="video_link" name="video_link" placeholder="Enter the URL" required />
+        <button type="submit">Convert & Download</button>
+      </form>
+    </main>
+    <footer>
+      <p>#This YouTube Converter is developed by Mohomed Afran.</p>
+      <p>Give this a star on <a href="#" target="_blank">GitHub</a>.</p>
+      <p>Contact me on <a href="https://wa.me/+94711806353" target="_blank">WhatsApp</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

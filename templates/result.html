@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversion Successful</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Conversion Successful</h1>
+    </header>
+    <main>
+      <p class="success-message">
+        <strong>{{ file_name }}</strong> has been successfully converted and downloaded!
+      </p>
+      <p>Your converted file is saved in <strong>/youtube_converter_downloads</strong> in your local storage.</p>
+      <a href="/" class="button">Convert Another Video</a>
+    </main>
+    <footer>
+      <p>#This YouTube Converter is developed by Phoenix.</p>
+      <p>Give this a star on <a href="#" target="_blank">GitHub</a>.</p>
+      <p>Contact me on <a href="https://wa.me/+94711806353" target="_blank">WhatsApp</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

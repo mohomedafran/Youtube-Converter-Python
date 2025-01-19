@@ -28,6 +28,7 @@ def convert():
 
         # Define download options for yt_dlp
         options = {
+            'cookiefile': 'cookies.txt',
             'format': 'bestaudio/best',
             'keepvideo': False,
             'outtmpl': filename
